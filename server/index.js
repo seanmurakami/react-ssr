@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOMServer from "react-dom/server";
 import express from "express";
-import { App } from "../client/components/App";
+import App from "../client/components/App";
 
 const app = express();
 const PORT = 3000;
@@ -10,7 +10,7 @@ app.get("/", (req, res) => {
   const jsx = ReactDOMServer.renderToString(<App />);
 
   const clientBundleScript = `<script src="http://localhost:8080/scripts/bundle.js"></script>`;
-  const clientBundleStyle = `<link rel="stylesheet" href="http://localhost:8080/styles/bundle.js"`;
+  const clientBundleStyle = `<link rel="stylesheet" href="http://localhost:8080/styles/bundle.css"`;
 
   res.send(`
     <!DOCTYPE html>
